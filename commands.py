@@ -1,16 +1,16 @@
 import sys
 
 
-def cmd_add(shelf):
+def cmd_add(shelf, *args):
     title = input("Enter the game title: ")
     shelf.add_game(title)
 
 
-def cmd_list(shelf):
+def cmd_list(shelf, *args):
     shelf.list_games()
 
 
-def cmd_help(shelf):
+def cmd_help(shelf, *args):
     print()
     print("GameShelf CLI")
     print("Usage:")
@@ -21,7 +21,7 @@ def cmd_help(shelf):
     print()
 
 
-def cmd_exit(shelf):
+def cmd_exit(shelf, *args):
     print("Exiting GameShelf CLI...")
     sys.exit()
 
