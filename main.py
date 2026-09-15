@@ -1,10 +1,9 @@
-from commands import get_commands
+from command_registry import get_commands
 from game_shelf import GameShelf
 
 
-def clean_input(text: str) -> list[str]:
-    lowercased = text.lower()
-    words = lowercased.split()
+def split_input(text: str) -> list[str]:
+    words = text.split()
     return words
 
 
@@ -13,7 +12,7 @@ def main():
 
     commands = get_commands()
     while True:
-        words = clean_input(input("gameshelf > "))
+        words = split_input(input("gameshelf > "))
         if len(words) == 0:
             continue
         command_name = words[0]
