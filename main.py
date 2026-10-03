@@ -1,4 +1,4 @@
-from command_registry import get_commands
+from command_registry import COMMANDS
 from game_shelf import GameShelf
 
 
@@ -10,7 +10,6 @@ def split_input(text: str) -> list[str]:
 def main():
     shelf = GameShelf()
 
-    commands = get_commands()
     while True:
         words = split_input(input("gameshelf > "))
         if len(words) == 0:
@@ -21,8 +20,8 @@ def main():
         if len(words) > 1:
             args = words[1:]
 
-        command = commands.get(command_name)
-        if not command:
+        command = COMMANDS.get(command_name)
+        if command is None:
             print("Unknown command")
             continue
 

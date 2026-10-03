@@ -1,7 +1,7 @@
-from game_shelf import GameNotFoundError
+from game_shelf import GameNotFoundError, GameShelf
 
 
-def cmd_rename(shelf, *args):
+def cmd_rename(shelf: GameShelf, *args: str) -> None:
     if len(args) < 2:
         print("Usage: rename id new_title")
         return
@@ -17,7 +17,8 @@ def cmd_rename(shelf, *args):
     new_title = " ".join(args[1:])
 
     try:
-        old_title, new_title = shelf.rename_game(game_id, new_title)
-        print(f"Game {old_title} renamed to {new_title}")
+        old_title = shelf.get_game(game_id).title
+        updated = shelf.rename_game(game_id, new_title)
+        print(f"Game '{old_title}' renamed to '{updated.title}'")
     except GameNotFoundError as e:
         print(f"Error: {e}")

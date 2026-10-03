@@ -1,8 +1,11 @@
-def cmd_list(shelf, *args):
+from game_shelf import GameShelf
+
+
+def cmd_list(shelf: GameShelf, *args: str) -> None:
     games = shelf.list_games()
     if len(games) == 0:
         print("The shelf is empty")
         return
 
-    for id, title, status in games:
-        print(f"[{id}] {title} ({status})")
+    for game in games:
+        print(f"[{game.id}] {game.title} ({game.status.value})")
