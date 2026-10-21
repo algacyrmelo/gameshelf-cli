@@ -3,37 +3,38 @@ from typing import TypedDict
 from game_shelf import Game, GameShelf, GameStatus
 
 
-class GameData(TypedDict):
+class GameDict(TypedDict):
     id: int
     title: str
     status: str
 
 
-class ShelfData(TypedDict):
+class ShelfDict(TypedDict):
     next_id: int
-    games: list[GameData]
+    games: list[GameDict]
 
 
-def shelf_to_dict(shelf: GameShelf) -> ShelfData:
-    games: list[GameData] = []
+def game_to_dict(game: Game) -> GameDict:
+    return {"id": game.id, "title": game.title, "status": game.status.value}
 
-    # TODO: Create game_to_dict
+
+def game_from_dict(game: GameDict) -> Game:
+    return Game(game["id"], game["title"], GameStatus(game["status"]))
+
+
+def shelf_to_dict(shelf: GameShelf) -> ShelfDict:
+
+    games: list[GameDict] = []
     for game in shelf.list_games():
-        game_data: GameData = {
-            "id": game.id,
-            "title": game.title,
-            "status": game.status.value,
-        }
-        games.append(game_data)
+        games.append(game_to_dict(game))
 
     return {"next_id": shelf.next_id, "games": games}
 
 
-def shelf_from_dict(shelf_data: ShelfData) -> GameShelf:
+def shelf_from_dict(shelf: ShelfDict) -> GameShelf:
+
     games: list[Game] = []
-    for game_data in shelf_data["games"]:
-        game = Game(
-            game_data["id"], game_data["title"], GameStatus(game_data["status"])
-        )
-        games.append(game)
-    return GameShelf(games, shelf_data["next_id"])
+    for game_dict in shelf["games"]:
+        games.append(game_from_dict(game_dict))
+
+    return GameShelf(games, shelf["next_id"])
