@@ -21,9 +21,12 @@ class Game:
 
 
 class GameShelf:
-    def __init__(self) -> None:
-        self.games = []
-        self.next_id = 1
+    def __init__(self, games: list[Game] | None = None, next_id: int = 1) -> None:
+        if games is None:
+            self.games = []
+        else:
+            self.games = list(games)
+        self.next_id = next_id
 
     def add_game(self, title: str) -> Game:
         new_game = Game(self.next_id, title)
