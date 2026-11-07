@@ -1,11 +1,11 @@
 import unittest
 
-from game_shelf import GameNotFoundError, GameShelf, GameStatus
+from game_shelf import GameNotFoundError, Shelf, GameStatus
 
 
 class TestGameShelf(unittest.TestCase):
     def setUp(self) -> None:
-        self.gameshelf = GameShelf()
+        self.gameshelf = Shelf()
 
     # add_game
     def test_add_game(self):

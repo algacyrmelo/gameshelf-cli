@@ -2,10 +2,10 @@ from cmd_add import cmd_add
 from cmd_exit import cmd_exit
 from cmd_list import cmd_list
 from cmd_rename import cmd_rename
-from game_shelf import GameShelf
+from game_shelf import Shelf
 
 
-def cmd_help(shelf: GameShelf, *args: str) -> None:
+def cmd_help(shelf: Shelf, *args: str) -> None:
     print()
     print("GameShelf CLI")
     print()

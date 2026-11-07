@@ -1,7 +1,7 @@
-from game_shelf import GameShelf
+from game_shelf import Shelf
 
 
-def cmd_list(shelf: GameShelf, *args: str) -> None:
+def cmd_list(shelf: Shelf, *args: str) -> None:
     games = shelf.list_games()
     if len(games) == 0:
         print("The shelf is empty")

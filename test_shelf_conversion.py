@@ -1,6 +1,6 @@
 import unittest
 
-from game_shelf import Game, GameNotFoundError, GameShelf, GameStatus
+from game_shelf import Game, GameNotFoundError, Shelf, GameStatus
 from shelf_conversion import GameDict, ShelfDict, shelf_from_dict, shelf_to_dict
 
 
@@ -16,7 +16,7 @@ class TestShelfConversion(unittest.TestCase):
             {"id": 3, "title": "A Mortician's Tale", "status": "beaten"},
             {"id": 4, "title": "Valorant", "status": "endless"},
         ]
-        self.shelf = GameShelf(games, next_id=7)
+        self.shelf = Shelf(games, next_id=7)
         self.shelf_dict: ShelfDict = {"next_id": 7, "games": game_dicts}
 
     def test_shelf_to_dict(self) -> None:
@@ -24,7 +24,7 @@ class TestShelfConversion(unittest.TestCase):
         self.assertEqual(result, self.shelf_dict)
 
     def test_shelf_to_dict_empty(self) -> None:
-        result = shelf_to_dict(GameShelf())
+        result = shelf_to_dict(Shelf())
         self.assertEqual(result, {"next_id": 1, "games": []})
 
     def test_shelf_from_dict(self) -> None:

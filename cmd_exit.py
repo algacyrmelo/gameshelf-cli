@@ -1,8 +1,8 @@
 import sys
 
-from game_shelf import GameShelf
+from game_shelf import Shelf
 
 
-def cmd_exit(shelf: GameShelf, *args: str) -> None:
+def cmd_exit(shelf: Shelf, *args: str) -> None:
     print("Exiting...")
     sys.exit()

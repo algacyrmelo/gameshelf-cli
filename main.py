@@ -1,5 +1,5 @@
 from command_registry import COMMANDS
-from game_shelf import GameShelf
+from persistence import DATA_FILE, load
 
 
 def split_input(text: str) -> list[str]:
@@ -8,7 +8,7 @@ def split_input(text: str) -> list[str]:
 
 
 def main():
-    shelf = GameShelf()
+    shelf = load(DATA_FILE)
 
     while True:
         words = split_input(input("gameshelf > "))

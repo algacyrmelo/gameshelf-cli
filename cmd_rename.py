@@ -1,7 +1,8 @@
-from game_shelf import GameNotFoundError, GameShelf
+from game_shelf import GameNotFoundError, Shelf
+from persistence import DATA_FILE, save
 
 
-def cmd_rename(shelf: GameShelf, *args: str) -> None:
+def cmd_rename(shelf: Shelf, *args: str) -> None:
     if len(args) < 2:
         print("Usage: rename id new_title")
         return
@@ -22,3 +23,5 @@ def cmd_rename(shelf: GameShelf, *args: str) -> None:
         print(f"Game '{old_title}' renamed to '{updated.title}'")
     except GameNotFoundError as e:
         print(f"Error: {e}")
+    finally:
+        save(shelf, DATA_FILE)

@@ -20,7 +20,7 @@ class Game:
     status: GameStatus = GameStatus.PLAYING
 
 
-class GameShelf:
+class Shelf:
     def __init__(self, games: list[Game] | None = None, next_id: int = 1) -> None:
         if games is None:
             self.games = []
