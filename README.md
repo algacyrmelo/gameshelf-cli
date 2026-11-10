@@ -17,9 +17,9 @@ chmod +x ./test.sh
 
 ## Next implementations
 
-- [ ] Implement data persistence
-- [ ] Create commands that changes the game status easily.
-For example: `beat game_id`, `plat game_id`, `play game_id`, etc.
+- [x] Implement data persistence.
+- [ ] Create commands that changes the game status easily. For example: `beat game_id`, `plat game_id`, `play game_id`, etc.
+- [ ] Validate JSON data file
 
 ## User Stories
 

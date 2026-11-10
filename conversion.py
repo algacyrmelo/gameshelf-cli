@@ -1,4 +1,4 @@
-from game_shelf import Game, Shelf, GameStatus
+from shelf import Game, GameStatus, Shelf
 from typed import GameDict, ShelfDict
 
 

@@ -1,8 +1,8 @@
 import json
 from pathlib import Path
 
-from game_shelf import Shelf
-from shelf_conversion import shelf_from_dict, shelf_to_dict
+from shelf import Shelf
+from conversion import shelf_from_dict, shelf_to_dict
 
 DATA_FILE = Path.home() / ".gameshelf" / "shelf.json"
 

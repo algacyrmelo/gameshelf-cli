@@ -1,4 +1,4 @@
-from game_shelf import Shelf
+from shelf import Shelf
 
 
 def cmd_list(shelf: Shelf, *args: str) -> None:

@@ -1,6 +1,6 @@
 import unittest
 
-from game_shelf import GameNotFoundError, Shelf, GameStatus
+from shelf import GameNotFoundError, GameStatus, Shelf
 
 
 class TestGameShelf(unittest.TestCase):

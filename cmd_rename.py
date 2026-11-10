@@ -1,5 +1,5 @@
-from game_shelf import GameNotFoundError, Shelf
 from persistence import DATA_FILE, save
+from shelf import GameNotFoundError, Shelf
 
 
 def cmd_rename(shelf: Shelf, *args: str) -> None:

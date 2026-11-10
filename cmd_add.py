@@ -1,5 +1,5 @@
-from game_shelf import Shelf
 from persistence import DATA_FILE, save
+from shelf import Shelf
 
 
 def cmd_add(shelf: Shelf, *args: str) -> None:

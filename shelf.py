@@ -47,3 +47,6 @@ class Shelf:
             if game.id == game_id:
                 return game
         raise GameNotFoundError(f"Game with id {game_id} not found")
+
+    def __eq__(self, value: object) -> bool:
+        return self.games == value.games and self.next_id == value.next_id

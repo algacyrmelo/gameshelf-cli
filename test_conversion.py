@@ -1,7 +1,7 @@
 import unittest
 
-from game_shelf import Game, GameNotFoundError, Shelf, GameStatus
-from shelf_conversion import GameDict, ShelfDict, shelf_from_dict, shelf_to_dict
+from conversion import GameDict, ShelfDict, shelf_from_dict, shelf_to_dict
+from shelf import Game, GameStatus, Shelf
 
 
 class TestShelfConversion(unittest.TestCase):
